@@ -36,6 +36,10 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'twitter'
+gem 'oauth'
+gem 'omniauth-twitter'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
 	gem 'sqlite3', '1.3.13'
@@ -50,6 +54,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
