@@ -1,0 +1,9 @@
+<header>
+    <% if logged_in? %>
+        <div class="header-right">
+        <%= @user.name %> <%= link_to 'ログアウト', logout_path%>
+        </div>
+    <% else %>
+        <%= link_to 'ログイン', 'auth/twitter'%>
+    <% end %>
+</header>

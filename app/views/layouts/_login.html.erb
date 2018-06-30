@@ -1,0 +1,31 @@
+        <%#Tweet%>
+        <div class="tweet-container text-center">
+        <%= form_tag(tweet_path, method: "post") do %>
+            <div ><%= text_field_tag :text, '', class: "form_control input-area" %></div>
+            <%= submit_tag("Tweetする", class: "btn btn-primary") %>
+        <% end %>
+        </div>
+
+        <%#Timeline%>
+        <div class="col-xs-8 col-xs-offset-2">
+            <% @tweets.each do |tweet| %>
+                <div class="post-panel well well-sm">
+                    <div class="tweet-image">
+                        <%= link_to image_tag("#{tweet.user.profile_image_url_https}") %>
+                    </div>
+                    <div class="post">
+                        <strong><%= tweet.user.name %></strong> @<%= tweet.user.screen_name %><br />
+                        <%= tweet.text %><br />
+                        <span class="fa fa-retweet"></span> <%= tweet.retweet_count %> <span class="fa fa-heart"></span> <%= tweet.favorite_count %><br />
+                        <%= tweet.created_at %><br />
+                        <div class="post-image">
+                            <% if tweet.media? %>
+                                <% tweet.media.each do |media| %>
+                                    <%= image_tag("#{media.media_url_https}") %>
+                                <% end %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
