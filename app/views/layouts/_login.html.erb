@@ -1,7 +1,7 @@
         <%#Tweet%>
         <div class="tweet-container text-center">
         <%= form_tag(tweet_path, method: "post") do %>
-            <div ><%= text_field_tag :text, '', class: "form_control input-area" %></div>
+            <div class="col-xs-3"><%= text_area_tag :text, '', size:"40" %></div>
             <%= submit_tag("Tweetする", class: "btn btn-primary") %>
         <% end %>
         </div>
@@ -9,7 +9,8 @@
         <%#Timeline%>
         <div class="col-xs-8 col-xs-offset-2">
             <% @tweets.each do |tweet| %>
-                <div class="post-panel well well-sm">
+                <div class="card">
+                <div class="card-body">
                     <div class="tweet-image">
                         <%= link_to image_tag("#{tweet.user.profile_image_url_https}") %>
                     </div>
@@ -26,6 +27,7 @@
                             <% end %>
                         </div>
                     </div>
+                </div>
                 </div>
             <% end %>
         </div>

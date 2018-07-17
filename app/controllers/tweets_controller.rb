@@ -12,6 +12,8 @@ class TweetsController < ApplicationController
         redirect_to root_path
     end
 
+    #ツイート削除（未実装）
+
     #タイムライン
     def timeline
         client = client_new
